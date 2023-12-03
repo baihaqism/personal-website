@@ -1,6 +1,5 @@
 import React from "react";
 import DiscordCard from "../components/DiscordCard";
-import { BsTwitterX, BsInstagram, BsLinkedin } from "react-icons/bs";
 
 const Home: React.FC = () => {
   return (
