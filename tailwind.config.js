@@ -8,12 +8,17 @@ export default {
         nameBlue: "#00A6FB",
       },
       animation: {
-        spin: "spin 1s", // Adding a custom animation called "spin"
+        spin: "spin 1s",
+        reverseSpin: "reverseSpin 1s",
       },
       keyframes: {
         spin: {
-          "0%": { transform: "rotate(0deg)" },
-          "100%": { transform: "rotate(720deg)" },
+          "0%": { transform: "rotate(-12deg)" },
+          "100%": { transform: "rotate(708deg)" },
+        },
+        reverseSpin: {
+          "0%": { transform: "rotate(708deg)" },
+          "100%": { transform: "rotate(-12deg)" },
         },
       },
     },
