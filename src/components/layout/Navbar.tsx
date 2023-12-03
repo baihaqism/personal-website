@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
   const inactiveLink = "text-gray-300 opacity-70 hover:opacity-50";
 
   return (
-    <div className="sticky top-0 z-10 backdrop-filter backdrop-blur-lg bg-opacity-30">
+    <div className="sticky top-0 z-10 backdrop-filter backdrop-blur-lg bg-opacity-30 mt-5">
       <div className="flex items-center justify-center h-16">
         <div className="flex space-x-16">
           <NavLink

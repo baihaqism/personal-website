@@ -2,6 +2,17 @@
 
 export interface PresenceData {
     data: {
+        spotify: {
+            track_id: string;
+            timestamps: {
+                start: number;
+                end: number;
+            };
+            album: string;
+            album_art_url: string;
+            artist: string;
+            song: string;
+        }
         discord_user: {
             id: string;
             username: string;
@@ -30,9 +41,9 @@ export interface PresenceData {
             buttons: string[];
         }[];
         discord_status: string;
+        listening_to_spotify:boolean;
     };
 }
-
 
 export const fetchPresence = async (): Promise<PresenceData | null> => {
     try {
