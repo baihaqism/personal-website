@@ -31,7 +31,7 @@ const Home: React.FC = () => {
       <div className="w-full lg:w-3/5 lg:w-2/3 flex flex-col justify-center">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="p-4 group relative rounded-lg border border-gray-700 bg-white bg-opacity-5 backdrop-blur-sm duration-150 ease-in-out shadow-xl hover:shadow-2xl">
-            <div className="flex flex-col items-end justify-start px-4">
+            <div className="bg-transparent text-left">
               <h1 className="text-2xl font-bold mb-4">
                 Welcome to Our Website
               </h1>
@@ -43,7 +43,7 @@ const Home: React.FC = () => {
             </div>
           </div>
           <div className="p-4 group relative rounded-lg border border-gray-700 bg-white bg-opacity-5 backdrop-blur-sm duration-150 ease-in-out shadow-xl hover:shadow-2xl">
-            <div className="flex flex-col items-end justify-start px-4">
+            <div>
               <DiscordCard />
             </div>
           </div>

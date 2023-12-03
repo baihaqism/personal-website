@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchPresence, PresenceData } from "../api/lanyard";
-import { BsDiscord } from "react-icons/bs";
+import { BsDiscord, BsSpotify } from "react-icons/bs";
 
 const DiscordCard: React.FC = () => {
   const [presence, setPresence] = useState<PresenceData | null>(null);
@@ -56,7 +56,11 @@ const DiscordCard: React.FC = () => {
           {/* Avatar */}
           <div className="flex items-center justify-end space-x-4">
             <div className="flex space-x-2 items-center">
-              <BsDiscord className="absolute left-4 top-4 -z-[1] -rotate-12 text-6xl opacity-40 animate-spin" />
+              {presence.data.listening_to_spotify && presence.data.spotify ? (
+                <BsSpotify className="absolute left-4 top-4 -z-[1] -rotate-12 text-6xl opacity-40 animate-spin" />
+              ) : (
+                <BsDiscord className="absolute left-4 top-4 -z-[1] -rotate-12 text-6xl opacity-40 animate-spin" />
+              )}
               <div className="text-right">
                 <h1 className="font-semibold text-xl leading-tight">
                   {presence.data.discord_user.global_name}
@@ -66,6 +70,7 @@ const DiscordCard: React.FC = () => {
                 </h2>
               </div>
             </div>
+
             <div className="flex">
               <img
                 src={`https://cdn.discordapp.com/avatars/${presence.data.discord_user.id}/${presence.data.discord_user.avatar}.png`}
@@ -110,7 +115,13 @@ const DiscordCard: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <div className={presence.data.activities && presence.data.activities[0] ? "mt-5" : "mt-12"}>
+              <div
+                className={
+                  presence.data.activities && presence.data.activities[0]
+                    ? "mt-5"
+                    : "mt-12"
+                }
+              >
                 <div className="rounded-lg flex flex-col space-y-4 bg-white/10 p-4 overflow-x-hidden">
                   <div className="flex space-x-4 items-center">
                     {presence.data.activities &&
