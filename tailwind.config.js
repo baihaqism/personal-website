@@ -4,8 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        customBlue: "rgb(118, 176, 241)",
-        nameBlue: "#00A6FB",
+        primary: "#F2F2F2",
+        accent: "#4ECAC7",
+        secondary: "#CCCCCC",
+        button: "#4E6AC7",
+        footer: "#7F849C"
       },
       animation: {
         spin: "spin 1s",

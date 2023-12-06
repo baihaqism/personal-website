@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import * as TypedJS from 'typed.js';
+import { typedStrings } from '../../data/homeData';
 
 const TypedComponent: React.FC = () => {
   const typeTargetRef = useRef<HTMLSpanElement>(null);
@@ -7,7 +8,7 @@ const TypedComponent: React.FC = () => {
   useEffect(() => {
     if (typeTargetRef.current) {
       const options: TypedJS.TypedOptions = {
-        strings: ['Backend Developer', 'Web Developer', 'Fullstack Developer'],
+        strings: typedStrings,
         typeSpeed: 50,
         backSpeed: 50,
         loop: true,

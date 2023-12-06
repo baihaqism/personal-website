@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { fetchPresence, PresenceData } from "../api/lanyard";
+import { fetchPresence, PresenceData } from "../../api/lanyard";
+import SkeletonLoader from "./SkeletonLoader";
 import { BsDiscord, BsSpotify } from "react-icons/bs";
 
 const DiscordCard: React.FC = () => {
   const [presence, setPresence] = useState<PresenceData | null>(null);
   const [, setElapsedTime] = useState<string>("");
+  const [loading, setLoading] = useState(true); // Add a loading state
 
   useEffect(() => {
     const getPresence = async () => {
       const data = await fetchPresence();
       setPresence(data);
+      setLoading(false);
     };
 
     getPresence();
@@ -51,7 +54,9 @@ const DiscordCard: React.FC = () => {
 
   return (
     <div>
-      {presence ? (
+      {loading ? (
+        <SkeletonLoader />
+      ) : presence ? (
         <div>
           <div className="flex items-center justify-end space-x-4">
             <div className="flex space-x-2 items-center">
@@ -120,8 +125,8 @@ const DiscordCard: React.FC = () => {
                     : "mt-12"
                 }
               >
-                <div className="rounded-lg flex flex-col space-y-4 bg-white/10 p-4 overflow-x-hidden">
-                  <div className="flex space-x-4 items-center">
+                <div className="rounded-lg flex flex-col space-y-4 bg-white/10 p-4 overflow-y-hidden">
+                  <div className="flex space-x-4 items-center max-h-20">
                     {presence.data.activities &&
                     presence.data.activities[0] &&
                     presence.data.activities[0].application_id &&
@@ -133,7 +138,7 @@ const DiscordCard: React.FC = () => {
                           height="128"
                           draggable="false"
                           alt="Large Image"
-                          className="rounded-xl h-21 w-21 relative"
+                          className="rounded-xl h-20 w-20 relative"
                         />
                         <img
                           src={`https://cdn.discordapp.com/app-assets/${presence.data.activities[0].application_id}/${presence.data.activities[0].assets.small_image}.png`}
@@ -145,7 +150,7 @@ const DiscordCard: React.FC = () => {
                         />
                       </div>
                     ) : (
-                      <p>Not playing anything.</p>
+                      <p>Not doing anything.</p>
                     )}
                     {presence.data.activities && presence.data.activities[0] ? (
                       <div className="space-y-px">

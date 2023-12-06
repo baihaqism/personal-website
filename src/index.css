@@ -5,10 +5,10 @@
 
 :root {
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background: linear-gradient(300deg, #051923, #001a29, #001a26);
-  background-size: 180% 180%;
-  animation: gradient-animation 15s ease infinite;
+  color: #F2F2F2;
+  background-image: linear-gradient(to top left, #13131a, #13131a, #d7bb8725);
+  background-size: 200% 200%;
+  animation: gradient-animation 60s ease infinite;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
