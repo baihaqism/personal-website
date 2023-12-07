@@ -5,7 +5,7 @@ import { BsDiscord, BsSpotify, BsFillSlashSquareFill } from "react-icons/bs";
 
 const DiscordCard: React.FC = () => {
   const [presence, setPresence] = useState<PresenceData | null>(null);
-  const [elapsedTime, setElapsedTime] = useState<string>("");
+  const [, setElapsedTime] = useState<string>("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
