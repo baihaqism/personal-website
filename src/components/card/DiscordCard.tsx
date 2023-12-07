@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { fetchPresence, PresenceData } from "../../api/lanyard";
 import SkeletonLoader from "./SkeletonLoader";
-import { BsDiscord, BsSpotify } from "react-icons/bs";
+import { BsDiscord, BsSpotify, BsFillSlashSquareFill } from "react-icons/bs";
 
 const DiscordCard: React.FC = () => {
   const [presence, setPresence] = useState<PresenceData | null>(null);
-  const [, setElapsedTime] = useState<string>("");
-  const [loading, setLoading] = useState(true); // Add a loading state
+  const [elapsedTime, setElapsedTime] = useState<string>("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getPresence = async () => {
@@ -18,7 +18,7 @@ const DiscordCard: React.FC = () => {
     getPresence();
 
     const intervalId = setInterval(() => {
-      if (presence && presence.data.activities && presence.data.activities[0]) {
+      if (presence?.data.activities?.[0]?.timestamps?.start) {
         const time = calculateTimeElapsed(
           presence.data.activities[0].timestamps.start
         );
@@ -31,8 +31,7 @@ const DiscordCard: React.FC = () => {
 
   const calculateTimeElapsed = (startTimestamp: number) => {
     const currentTimestamp = Math.floor(Date.now() / 1000);
-    const startTimestampInSeconds = Math.floor(startTimestamp / 1000);
-    const elapsedSeconds = currentTimestamp - startTimestampInSeconds;
+    const elapsedSeconds = currentTimestamp - Math.floor(startTimestamp / 1000);
     const hours = Math.floor(elapsedSeconds / 3600);
     const minutes = Math.floor((elapsedSeconds % 3600) / 60);
     const seconds = elapsedSeconds % 60;
@@ -120,15 +119,14 @@ const DiscordCard: React.FC = () => {
                 className={
                   presence.data.activities && presence.data.activities[0]
                     ? "mt-5"
-                    : "mt-12"
+                    : "mt-5"
                 }
               >
                 <div className="rounded-lg flex flex-col space-y-4 bg-white/10 p-4 overflow-y-hidden">
                   <div className="flex space-x-4 items-center max-h-20">
                     {presence.data.activities &&
-                    presence.data.activities[0] &&
-                    presence.data.activities[0].application_id &&
-                    presence.data.activities[0].assets ? (
+                    presence.data.activities[0]?.application_id &&
+                    presence.data.activities[0]?.assets ? (
                       <div className="flex relative">
                         <img
                           src={`https://cdn.discordapp.com/app-assets/${presence.data.activities[0].application_id}/${presence.data.activities[0].assets.large_image}.png`}
@@ -148,7 +146,20 @@ const DiscordCard: React.FC = () => {
                         />
                       </div>
                     ) : (
-                      <p>Not doing anything.</p>
+                      <div className="flex space-x-4 items-center">
+                        <div className="flex relative">
+                          <div className="rounded-xl h-20 w-20 relative mr-4">
+                            <BsFillSlashSquareFill className="h-20 w-20 text-white/10" />
+                          </div>
+                          <div className="space-y-3">
+                            <div className="rounded-full h-4 w-40">
+                              <h1 className="font-semibold text-lg leading-tight truncate">Not doing anything.</h1>
+                            </div>
+                            <div className="rounded-full h-4 w-32 bg-white/10"></div>
+                            <div className="rounded-full h-4 w-24 bg-white/10"></div>
+                          </div>
+                        </div>
+                      </div>
                     )}
                     {presence.data.activities && presence.data.activities[0] ? (
                       <div className="space-y-px">

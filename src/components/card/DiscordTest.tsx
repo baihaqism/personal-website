@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { fetchPresence, PresenceData } from "../../api/lanyard";
 import SkeletonLoader from "./SkeletonLoader";
-import { BsDiscord, BsSpotify } from "react-icons/bs";
+import { BsDiscord, BsSpotify, BsFillPatchMinusFill } from "react-icons/bs";
 
 const DiscordCard: React.FC = () => {
   const [presence, setPresence] = useState<PresenceData | null>(null);
   const [, setElapsedTime] = useState<string>("");
-  const [loading, setLoading] = useState(true); // Add a loading state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getPresence = async () => {
@@ -93,27 +93,25 @@ const DiscordCard: React.FC = () => {
           <div>
             {presence.data.listening_to_spotify && presence.data.spotify ? (
               <div className="rounded-lg flex flex-col space-y-4 bg-white/10 p-4 overflow-x-hidden mt-5">
-                <div className="flex space-x-4 items-center">
-                  <div className="flex relative">
-                    <img
-                      src={presence.data.spotify.album_art_url}
-                      width="128"
-                      height="128"
-                      draggable="false"
-                      alt="Album Art"
-                      className="rounded-xl h-20 w-20 relative mr-4"
-                    />
-                    <div className="space-y-px">
-                      <h1 className="font-semibold text-lg leading-tight truncate">
-                        {presence.data.spotify.song}
-                      </h1>
-                      <h2 className="leading-tight opacity-40 line-clamp-2">
-                        by {presence.data.spotify.artist}
-                      </h2>
-                      <h2 className="leading-tight opacity-40 line-clamp-2">
-                        on {presence.data.spotify.album}
-                      </h2>
-                    </div>
+                <div className="flex space-x-4 items-center max-h-20">
+                  <img
+                    src={presence.data.spotify.album_art_url}
+                    width="128"
+                    height="128"
+                    draggable="false"
+                    alt="Album Art"
+                    className="rounded-xl h-20 w-20 relative"
+                  />
+                  <div className="space-y-px">
+                    <h1 className="font-semibold text-lg leading-tight truncate">
+                      {presence.data.spotify.song}
+                    </h1>
+                    <h2 className="leading-tight opacity-40 line-clamp-2">
+                      by {presence.data.spotify.artist}
+                    </h2>
+                    <h2 className="leading-tight opacity-40 line-clamp-2">
+                      on {presence.data.spotify.album}
+                    </h2>
                   </div>
                 </div>
               </div>
@@ -122,7 +120,7 @@ const DiscordCard: React.FC = () => {
                 className={
                   presence.data.activities && presence.data.activities[0]
                     ? "mt-5"
-                    : "mt-12"
+                    : "mt-5"
                 }
               >
                 <div className="rounded-lg flex flex-col space-y-4 bg-white/10 p-4 overflow-y-hidden">
@@ -150,7 +148,16 @@ const DiscordCard: React.FC = () => {
                         />
                       </div>
                     ) : (
-                      <p>Not doing anything.</p>
+                      <div className="flex space-x-4 items-center">
+                        <div className="flex relative">
+                          <div className="rounded-xl h-20 w-20 relative mr-4"><BsFillPatchMinusFill className="h-20 w-20 text-white/10" /></div>
+                          <div className="space-y-3">
+                            <div className="rounded-full h-4 w-40"><p>Not doing any activity.</p></div>
+                            <div className="rounded-full h-4 w-32 bg-white/10"></div>
+                            <div className="rounded-full h-4 w-24 bg-white/10"></div>
+                          </div>
+                        </div>
+                      </div>
                     )}
                     {presence.data.activities && presence.data.activities[0] ? (
                       <div className="space-y-px">

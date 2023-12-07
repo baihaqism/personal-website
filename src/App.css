@@ -9,9 +9,10 @@ html {
 }
 
 body {
-  margin-bottom: 60px; /* Height of the footer */
-  overflow-x: hidden; 
+  margin: 0;
+  padding: 0;
 }
+
 
 footer {
   position: absolute;

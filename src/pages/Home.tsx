@@ -14,14 +14,15 @@ const Home: React.FC = () => {
       <div className="w-full lg:w-2/4 lg:w-2/3 flex flex-col justify-center lg:text-left text-center md:text-center">
         <h1 className="text-3xl text-primary">{greetingText}</h1>
         <h1 className="text-6xl text-accent font-bold mb-5">{nameText}</h1>
-        <p className="text-2xl font-medium text-secondary mb-10">
+        <p className="text-2xl font-medium text-secondary mb-5 lg:mb-10">
           <TypedComponent />
         </p>
-        <div className="flex flex-row justify-center lg:justify-start space-x-6  text-md mb-10 lg:mb-0">
+        <div className="flex flex-row justify-center lg:justify-start space-x-6  text-md mb-5 lg:mb-0">
           {socialMediaLinks.map((link, index) => (
             <a
               key={index}
               href={link.url}
+              title={link.name}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center w-10 h-10 transition duration-300 hover:scale-110"

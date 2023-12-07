@@ -1,6 +1,7 @@
 import {
   BsTwitterX,
   BsInstagram,
+  BsGithub,
   BsLinkedin,
   BsEnvelopeFill,
 } from "react-icons/bs";
@@ -32,6 +33,11 @@ export const socialMediaLinks: SocialMediaLink[] = [
     url: "https://instagram.com/baihaqism_",
   },
   {
+    name: "Github",
+    icon: BsGithub,
+    url: "https://github.com/baihaqism",
+  },
+  {
     name: "LinkedIn",
     icon: BsLinkedin,
     url: "https://linkedin.com/in/baihaqism",
@@ -45,7 +51,7 @@ export const socialMediaLinks: SocialMediaLink[] = [
 
 export const homeCard = {
   welcomeCard: {
-    title: "Welcome to Our Website",
+    title: "Lorem Ipsum",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
   }
