@@ -23,6 +23,11 @@ export interface SocialMediaLink {
 
 export const socialMediaLinks: SocialMediaLink[] = [
   {
+    name: "Github",
+    icon: BsGithub,
+    url: "https://github.com/baihaqism",
+  },
+  {
     name: "Twitter",
     icon: BsTwitterX,
     url: "https://twitter.com/baihaqism",
@@ -31,11 +36,6 @@ export const socialMediaLinks: SocialMediaLink[] = [
     name: "Instagram",
     icon: BsInstagram,
     url: "https://instagram.com/baihaqism_",
-  },
-  {
-    name: "Github",
-    icon: BsGithub,
-    url: "https://github.com/baihaqism",
   },
   {
     name: "LinkedIn",
