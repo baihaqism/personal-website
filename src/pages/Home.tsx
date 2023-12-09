@@ -3,7 +3,6 @@ import {
   socialMediaLinks,
   greetingText,
   nameText,
-  homeCard,
 } from "../data/homeData";
 import DiscordCard from "../components/card/DiscordCard";
 import ResumeCard from "../components/card/ResumeCard";
