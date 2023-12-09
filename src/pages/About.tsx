@@ -3,7 +3,7 @@ import profileImage from "../assets/photoprofile.jpg";
 
 const About: React.FC = () => {
   return (
-    <div className="mt-10 md:mt-1 p-4">
+    <div className="mt-10 mb-10 md:mt-1 p-4">
       <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-4 rounded-lg shadow-lg mt-10">
         <h1 className="text-3xl font-bold mb-4">About Me</h1>
         <div className="flex flex-col md:flex-row items-center">
@@ -24,16 +24,16 @@ const About: React.FC = () => {
         <h2 className="text-3xl font-bold mb-4">Skills</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-4 rounded-lg shadow-lg">
-            <h3 className="text-lg font-semibold mb-2">JavaScript</h3>
-            <p className="text-secondary">Proficient</p>
+            <h3 className="text-lg font-semibold mb-2">Loren</h3>
+            <p className="text-secondary">Ipsum</p>
           </div>
           <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-4 rounded-lg shadow-lg">
-            <h3 className="text-lg font-semibold mb-2">React</h3>
-            <p className="text-secondary">Intermediate</p>
+            <h3 className="text-lg font-semibold mb-2">Loren</h3>
+            <p className="text-secondary">Ipsum</p>
           </div>
           <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-4 rounded-lg shadow-lg">
-            <h3 className="text-lg font-semibold mb-2">React</h3>
-            <p className="text-secondary">Intermediate</p>
+            <h3 className="text-lg font-semibold mb-2">Loren</h3>
+            <p className="text-secondary">Ipsum</p>
           </div>
         </div>
       </div>

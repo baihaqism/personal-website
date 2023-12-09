@@ -1,6 +1,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 
 html {
@@ -13,10 +14,9 @@ body {
   padding: 0;
 }
 
-
-footer {
+.footer {
   position: absolute;
-  bottom: 0;
+  bottom: 2%;
   width: 100%;
   max-width: 1280px;
 }

@@ -6,12 +6,13 @@ import {
   homeCard,
 } from "../data/homeData";
 import DiscordCard from "../components/card/DiscordCard";
+import ResumeCard from "../components/card/ResumeCard";
 import TypedComponent from "../components/typist/TypedComponent";
 
 const Home: React.FC = () => {
   return (
-    <div className="mt-10 md:mt-1 flex flex-col lg:flex-row md:flex-col md:gap-8 md:justify-center min-h-[65vh] md:min-h-[80vh] items-center p-4">
-      <div className="w-full lg:w-2/4 lg:w-2/3 flex flex-col justify-center lg:text-left text-center md:text-center">
+    <div className="mt-10 mb-10 md:mt-1 flex flex-col lg:flex-row md:flex-col md:gap-8 md:justify-center min-h-[65vh] md:min-h-[80vh] items-center p-4 ">
+      <div className="w-full lg:w-2/4 lg:w-2/3 flex flex-col justify-center lg:text-left text-center md:text-center animate-fadeInLeft">
         <h1 className="text-3xl text-primary">{greetingText}</h1>
         <h1 className="text-6xl text-accent font-bold mb-5">{nameText}</h1>
         <p className="text-2xl font-medium text-secondary mb-5 lg:mb-10">
@@ -32,16 +33,11 @@ const Home: React.FC = () => {
           ))}
         </div>
       </div>
-      <div className="w-full lg:w-4/5 lg:w-2/3 flex flex-col justify-center">
+      <div className="w-full lg:w-4/5 lg:w-2/3 flex flex-col justify-center animate-fadeInRight">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="p-4 h-56 group relative rounded-lg border border-gray-700 bg-white bg-opacity-5 backdrop-blur-sm shadow-xl hover:shadow-2xl">
             <div>
-              <h1 className="text-2xl font-bold mb-4">
-                {homeCard.welcomeCard.title}
-              </h1>
-              <p className="text-sm text-slate-400">
-                {homeCard.welcomeCard.description}
-              </p>
+              <ResumeCard />
             </div>
           </div>
           <div className="p-4 h-56 group relative rounded-lg border border-gray-700 bg-white bg-opacity-5 backdrop-blur-sm shadow-xl hover:shadow-2xl">
