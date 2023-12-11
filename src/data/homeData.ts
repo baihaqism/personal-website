@@ -12,7 +12,6 @@ export const typedStrings = [
   'Information Systems Student',
   'Backend Developer',
   'Web Developer',
-  'Fullstack Developer'
 ];
 
 export interface SocialMediaLink {
