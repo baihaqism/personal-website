@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { fetchPresence, PresenceData } from "../../api/lanyard";
 import SkeletonLoader from "./SkeletonLoader";
-import { BsDiscord, BsSpotify, BsFillSlashSquareFill } from "react-icons/bs";
+import {
+  BsDiscord,
+  BsSpotify,
+  BsFillSlashSquareFill,
+  BsExclamationCircleFill,
+} from "react-icons/bs";
 
 const DiscordCard: React.FC = () => {
   const [presence, setPresence] = useState<PresenceData | null>(null);
@@ -153,10 +158,13 @@ const DiscordCard: React.FC = () => {
                           </div>
                           <div className="space-y-3">
                             <div className="rounded-full h-4 w-40">
-                              <h1 className="font-semibold text-lg leading-tight truncate">Not doing anything.</h1>
+                              <div className="flex items-center mt-7">
+                                <BsExclamationCircleFill className="mr-2" />
+                                <h1 className="font-semibold text-sm leading-tight truncate">
+                                  Not doing anything.
+                                </h1>
+                              </div>
                             </div>
-                            <div className="rounded-full h-4 w-32 bg-white/10"></div>
-                            <div className="rounded-full h-4 w-24 bg-white/10"></div>
                           </div>
                         </div>
                       </div>

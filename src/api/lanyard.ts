@@ -1,5 +1,3 @@
-// api/lanyard.ts
-
 export interface PresenceData {
     data: {
         spotify: {
@@ -60,6 +58,5 @@ export const fetchPresence = async (): Promise<PresenceData | null> => {
         return null;
     }
 };
-
 
 export default fetchPresence;

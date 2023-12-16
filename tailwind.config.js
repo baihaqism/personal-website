@@ -3,6 +3,9 @@ export default {
   content: ["./src/**/*.{html,tsx,ts}"],
   theme: {
     extend: {
+      scale: {
+        250: "2.50",
+      },
       colors: {
         primary: "#F2F2F2",
         accent: "#4ECAC7",
@@ -13,6 +16,7 @@ export default {
       animation: {
         spin: "spin 1s",
         reverseSpin: "reverseSpin 1s",
+        fadeIn: "fadeIn 0.5s ease",
         fadeInUp: "fadeInUp 1s ease",
         fadeInDown: "fadeInDown 1s ease",
         fadeInRight: "fadeInRight 1s ease",
@@ -26,6 +30,10 @@ export default {
         reverseSpin: {
           "0%": { transform: "rotate(708deg)" },
           "100%": { transform: "rotate(-12deg)" },
+        },
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
         fadeInUp: {
           "0%": {
